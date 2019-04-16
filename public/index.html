@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/htmlcharset=UTF-8">
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://unpkg.com/nes.css@2.1.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet"> 
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>game-pad</title>
+</head>
+
+<body>
+    <a href="/"><h1 class="nes-btn">game-pad <i class="nes-logo"></i> mapper</h1></a>
+    <div class="nes-container with-title">
+        <p class="title">How to Use</p>
+        <p>On the left you can map the keystokes fired from the analog stick. On the right you can map the keystrokes triggered by the buttons. Placeholder text is the last sent bindings. Have fun!</p>
+    </div>
+    <form class="nes-input">
+        <div class="joystick">
+            <input id="left" class="nes-input" maxlength="1" placeholder="a">
+            <div class="vertical">
+                <input id="up" class="nes-input" maxlength="1" placeholder="w">
+                <input id="press" class="nes-input" maxlength="1" placeholder="x">
+                <input id="down" class="nes-input" maxlength="1" placeholder="s">
+            </div>
+            <input id="right" class="nes-input" maxlength="1" placeholder="d">
+        </div>
+
+        <div class="buttons">
+            <input id="one" class="nes-input" maxlength="1" placeholder="j"/>
+            <input id="two" class="nes-input" maxlength="1" placeholder="k"/>
+        </div>
+    </form>
+    <button id="save" class="nes-btn is-success">save mappings</button>
+</body>
+
+<script>
+    $(document).ready(() => {
+        var socket = io()
+        
+        $('#save').click(e => { 
+            e.preventDefault()
+            let config = {
+                up: $('#up').val(),
+                left: $('#left').val(),
+                down: $('#down').val(),
+                right: $('#right').val(),
+                press: $('#press').val(),
+                one: $('#one').val(),
+                two: $('#two').val()
+            }
+            $('form input').map((key, el) => {
+                $(el).attr('placeholder', $(el).val())
+            })
+            $('form').trigger('reset')
+            alert('Keys binded!')
+            socket.emit('bind', config)
+        })
+        
+        socket.on('stroke', (key) => {
+            var keyEvent = new KeyboardEvent("keydown", {key : key, char : key, shiftKey: false});
+            document.dispatchEvent(keyEvent);
+        })
+
+        document.addEventListener("keydown", (e) => { 
+            console.log(e)
+        })
+    })
+</script>
+
+</html>

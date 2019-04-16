@@ -1,0 +1,16 @@
+{
+    "name": "game-pad",
+    "version": "0.0.1",
+    "description": "",
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "dependencies": {
+        "express": "^4.16.4",
+        "helmet": "^3.16.0",
+        "morgan": "^1.9.1",
+        "serialport": "^6.0.5",
+        "socket.io": "^2.0.4"
+    }
+}

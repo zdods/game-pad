@@ -1,0 +1,88 @@
+* {
+    font-family: 'Press Start 2P';
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    background: #209cee;
+}
+
+body {
+    h1 {
+        text-align: center;
+    }
+    .nes-container {
+        background: #fff;
+        width: 50%;
+    }
+    form {
+        display: flex !important;
+        align-items: center;
+        height: 40%;
+        max-width: 720px !important;
+        justify-content: space-around;
+        background: #c2c2c2;
+
+        .joystick,
+        .buttons {
+            input {
+
+                height: 50px;
+                width: 50px;
+                padding: 0 !important;
+            }
+        }
+
+        .joystick {
+            width: 25%;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .vertical {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+
+                input {
+                    height: 50px;
+                    margin: 0 auto;
+                }
+
+                #up {
+                    align-self: flex-start;
+                }
+
+                #down {
+                    align-self: flex-end;
+                }
+            }
+        }
+
+        .buttons {
+            width: 25%;
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+
+    #save {
+        width: 25%;
+        margin: 0 auto;
+    }
+}
+
+input {
+    text-align: center;
+}
