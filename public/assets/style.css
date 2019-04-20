@@ -18,16 +18,21 @@ body {
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
-  background: #209cee; }
+  background: #209cee;
+  padding: 0.5rem; }
 
 body h1 {
   text-align: center; }
 
 body .nes-container {
   background: #fff;
-  width: 50%; }
+  width: 100%;
+  margin: 1rem 0; }
+  body .nes-container p {
+    text-align: center; }
+    body .nes-container p span {
+      display: none;
+      text-align: left; }
 
 body form {
   display: -webkit-box !important;
@@ -36,19 +41,21 @@ body form {
   -webkit-box-align: center;
   -webkit-align-items: center;
           align-items: center;
-  height: 40%;
-  max-width: 720px !important;
-  -webkit-justify-content: space-around;
-          justify-content: space-around;
-  background: #c2c2c2; }
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+  background: #f7dab6;
+  padding: 1rem;
+  border: 4px solid #000; }
   body form .joystick input,
   body form .buttons input {
     height: 50px;
     width: 50px;
-    padding: 0 !important; }
+    padding: 0;
+    border: 2px solid #000;
+    margin: 2px; }
   body form .joystick {
-    width: 25%;
-    height: 60%;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -66,13 +73,9 @@ body form {
       -webkit-box-direction: normal;
       -webkit-flex-direction: column;
               flex-direction: column;
-      -webkit-box-pack: justify;
-      -webkit-justify-content: space-between;
-              justify-content: space-between;
       height: 100%; }
       body form .joystick .vertical input {
-        height: 50px;
-        margin: 0 auto; }
+        height: 50px; }
       body form .joystick .vertical #up {
         -webkit-align-self: flex-start;
                 align-self: flex-start; }
@@ -80,7 +83,6 @@ body form {
         -webkit-align-self: flex-end;
                 align-self: flex-end; }
   body form .buttons {
-    width: 25%;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
@@ -88,8 +90,8 @@ body form {
             justify-content: space-around; }
 
 body #save {
-  width: 25%;
-  margin: 0 auto; }
+  width: 80%;
+  margin: 1rem auto; }
 
 input {
   text-align: center; }
