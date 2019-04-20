@@ -37,18 +37,18 @@
     </div>
     <form>
       <div class="joystick">
-        <input id="left" maxlength="1" placeholder="a" />
+        <input id="left" maxlength="1" />
         <div class="vertical">
-          <input id="up" maxlength="1" placeholder="w" />
-          <input id="press" maxlength="1" placeholder="x" />
-          <input id="down" maxlength="1" placeholder="s" />
+          <input id="up" maxlength="1" />
+          <input id="press" maxlength="1" />
+          <input id="down" maxlength="1" />
         </div>
-        <input id="right" maxlength="1" placeholder="d" />
+        <input id="right" maxlength="1" />
       </div>
 
       <div class="buttons">
-        <input id="one" maxlength="1" placeholder="j" />
-        <input id="two" maxlength="1" placeholder="k" />
+        <input id="one" maxlength="1" />
+        <input id="two" maxlength="1" />
       </div>
     </form>
     <button id="save" class="nes-btn is-success">save mappings</button>
@@ -78,16 +78,7 @@
       });
 
       socket.on("stroke", key => {
-        var keyEvent = new KeyboardEvent("keydown", {
-          key: key,
-          char: key,
-          shiftKey: false
-        });
-        document.dispatchEvent(keyEvent);
-      });
-
-      document.addEventListener("keydown", e => {
-        console.log(e);
+        console.log(key)
       });
 
       $(".nes-container.with-title").click(function(e) {

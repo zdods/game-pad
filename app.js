@@ -44,7 +44,7 @@ app.use("/api", router)
 // ********************
 
 const parser = new parsers.Readline({
-  delimiter: "\r\n"
+  delimiter: "\n"
 })
 
 var port = new SerialPort("/dev/cu.usbmodem14101", {
@@ -67,6 +67,7 @@ io.on("connection", function(socket) {
 
 parser.on("data", function(data) {
   console.log(data)
+  io.emit('stroke', data)
 })
 
 // PORT
